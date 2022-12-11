@@ -1,0 +1,91 @@
+<?php
+include_once('head.php');
+?>
+<body>
+
+    <p class="text_nivel1 cabecera">Gestión de la base de datos</p>
+
+    <?php
+      include_once('comprobar_sesion.php');
+      echo('<h3 class="text_nivel2">');
+      echo("Actualmente su rol de usuario es: ");
+      $aa=comprobar_rol();
+      echo ($aa);
+      echo("</h3>");
+
+    ?>
+    
+<nav class="menu_inicio">
+  <ul>
+    <li><a href="index.html">Recargar página de inicio</a>  </li>
+    <h3>Servicios comunes</h3>
+    <li><a href="conectar_basedatos.php">Iniciar sesión en base de datos</a>  </li>
+    <li><a href="autenticar_usuario.php">Autenticar usuario</a>  </li>
+    <li><a href="cerrar_sesion.php">Cerrar sesión de usuario</a>  </li>
+
+    <h3>Servicios solamente para alumnos</h3>
+    <li><a href="test_online.php">Realizar test online</a>  </li>
+    <h3>Servicios solamente para profesores</h3>
+    <li><a href="alta_nuevo_usuario.php">Alta nuevo usuario</a></li>
+    <li><a href="comprobar_respuestas.php">Comprobar respuestas de examen</a>  </li>
+    <li><a href="generar_informe.php">Generar informes de alumno</a>  </li>
+  </ul>     
+ </nav>
+
+
+<br />
+
+<h3>NOTAS PARA EVALUACIÓN DE LA TAREA Y EL SITIO WEB</h3>
+<p>Tarea realizada por Pedro Godoy Polaina, alumno de DAW en IES Trassierra, para la Ud.2 de DWES.</p>
+<p>Hay 6 usuarios de base de datos registrados en la tabla 'usuario', cada uno con su rol asociado: profesor o alumno<br />
+Para comprobación de acceso se puede usar: <br />
+<ul>
+<li>Rol de profesor(administrador): <strong> profesor</strong>, Contraseña: pppp</li>
+<li>Rol de alumno(usuario): <strong>alumno</strong>, Contraseña: aaaa</li>
+</ul>
+Hay tres alumnos de los que se puede extraer sus datos de examen: <strong>carlos, david, pedro.</strong><br />
+Cada rol de usuario tiene asociados un uso distinto de la página.<br />
+<br />
+</p>
+
+<h3>EN RELACIÓN A LA BASE DE DATOS</h3>
+<p>Los parámetros para acceso a la base de datos son los siguientes:</p>
+<ul>
+  <li>Servidor = "localhost"</li>
+  <li>Usuario = "root"</li>
+  <li>Password = ""</li>
+  <li>Nombre de la BD = "ud2_test"</li>
+</ul>
+  <p>Para la programación de la base de datos, basándome en el texto de la tarea he realizado un <br />
+  diagrama E/R con todas las entidades y relaciones que he considerado conveniente incluir en la BD.<br/>
+  Posteriormente he pasado a tablas el diagrama, comrpobando gráficamente que el modelo es funcional.<br/>
+  El ultimo término he programado en lenguaje MySQL para MariaDB todas las tablas y restricciones de la <br/>
+  Base de datos quedando dispuesta y sin errores para la creación con el gestor phpMyAdmin.</p>
+  <p>He adjuntado la base de datos tal y como se pide en formato .sql exportado desde phpMyAdmin,<br/>
+    aunque también he aportado en formato .txt la base de datos tal y como yo la programé y volqué <br/>
+    inicialmente.</p>
+
+<h3>CONTENIDO DE LA TAREA</h3>
+
+<ul>
+  <li>Página de incio desde donde se puede navegar e interactuar con la aplicación.</li>
+  <li>Incluye conexión con una base de datos.</li>
+  <li>Inicio de sesión tanto para el rol de usuario como para el rol de administrador.</li>
+  <li>Incluye una página de registro o alta como usuario nuevo.</li>
+  <li>Incluye sesión como alumno (usuario), y administrador (profesor).</li>
+  <li>Una vez iniciada la sesión cada rol de usuario tiene un tipo de servicio distinto.</li>
+  <li>Se pueden generar distintos informes recogiendo la información de una base de datos (MariaDB).</li>
+  <li>Es posible generar un examen de 10 preguntas con la capacidad de enviar las respuestas a la base de datos</li>
+  <li>Es posible generar un informe exportado a tabla con las respuestas dadas por un alumno concreto.</li>
+  <li>Es posible generar un informe exportado a tabla con las notas alcanzadas por un alumno concreto.</li>
+  <li>Cerrar sesión tanto como usuario como administrador.</li>
+  <li>Se realizan comprobaciones de usuario por seguridad para servir los datos.</li>
+</ul>
+  
+
+    <!-- Botón de regreso a página principal -->
+    <nav class="boton1"><a href="index.html">Ir al principio</a> </nav>
+
+
+  </body>
+</html>

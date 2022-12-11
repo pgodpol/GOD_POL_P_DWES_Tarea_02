@@ -1,0 +1,10 @@
+NOTA SOBRE LOS ARCHIVOS DE ESTE DIRECTORIO
+
+Dejo aquí dos bases de datos en archivo txt:
+
+-bd_inicio (plantilla).sql.txt es la base de datos que hice después de pasar a tablas mi planteamiento. Esta versión es totalmente funcional y es con la que he estado trabajando todo el tiempo de realización de la tarea. No contienen datos las tablas.
+
+-bd_inicio (exportada).sql.txt es la base de datos exportada desde phpMyAdmin una vez que los datos de pruebas han sido introducidos. Para hacerla funcionar he modificado las primeras líneas del documento exportado, para que borre la tabla previa existente en el caso de que exista. El resto del archivo es el archivo .sql exportado y sin más modificación.
+
+
+Pedro.

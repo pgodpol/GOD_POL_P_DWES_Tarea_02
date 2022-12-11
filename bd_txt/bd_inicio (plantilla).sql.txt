@@ -1,0 +1,101 @@
+-- Script de creación de bases de datos para MySQL/MariaDB
+/* Sript realizado por Pedro Godoy Polaina Tarea de la unidad 2 DWES */
+
+-- -------------- UD2: SISTEMA DE TEST ONLINE ----------------------- --
+/* Eliminar BD si existe. En caso de no existir no realiza acción */
+	DROP DATABASE IF EXISTS ud2_test;
+
+/* Crear una base de datos*/
+	CREATE DATABASE IF NOT EXISTS ud2_test;
+
+USE ud2_test;
+
+/* Crear tabla*/
+CREATE TABLE usuario(
+id_usuario SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+nombre_usuario VARCHAR(15) NOT NULL UNIQUE, 
+contrasena_usuario VARCHAR(15),
+rol_usuario ENUM ('alumno','profesor') NOT NULL
+);
+
+
+/* Crear tabla*/
+CREATE TABLE pregunta(
+id_pregunta SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+texto_pregunta VARCHAR(255) NOT NULL
+);
+
+/* Crear tabla*/
+CREATE TABLE respuesta(
+id_respuesta SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+id_pregunta SMALLINT UNSIGNED NOT NULL, 
+texto_respuesta VARCHAR(255) NOT NULL,
+respuesta_correcta BINARY NOT NULL,
+respuesta SMALLINT UNSIGNED,
+CONSTRAINT res_idp_FK FOREIGN KEY (id_pregunta) REFERENCES pregunta(id_pregunta) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+/* Crear tabla*/
+CREATE TABLE examen(
+id_unico  SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+intento SMALLINT UNSIGNED,
+id_usuario SMALLINT UNSIGNED,
+id_pregunta SMALLINT UNSIGNED,
+respuesta SMALLINT UNSIGNED,
+CONSTRAINT exa_usu_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT exa_pre_FK FOREIGN KEY (id_pregunta) REFERENCES pregunta(id_pregunta) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+/* Inserción de datos en la nueva BD */
+
+INSERT INTO usuario (nombre_usuario,contrasena_usuario,rol_usuario) VALUES
+('alvaro', 'aaaa', 'profesor'),
+('bernardo', 'bbbb', 'profesor'),
+('carlos', 'cccc', 'alumno'),
+('david', 'dddd', 'alumno'),
+('pedro', 'pppp', 'alumno');
+
+INSERT INTO pregunta (texto_pregunta) VALUES
+('Texto de la pregunta nº 1'),
+('Texto de la pregunta nº 2'),
+('Texto de la pregunta nº 3'),
+('Texto de la pregunta nº 4'),
+('Texto de la pregunta nº 5'),
+('Texto de la pregunta nº 6'),
+('Texto de la pregunta nº 7'),
+('Texto de la pregunta nº 8'),
+('Texto de la pregunta nº 9'),
+('Texto de la pregunta nº 10');
+
+INSERT INTO respuesta (id_pregunta,texto_respuesta,respuesta_correcta,respuesta) VALUES 
+(1,'Texto A respuesta para la pregunta nº 1',0,1),
+(1,'Texto B respuesta para la pregunta nº 1',0,2),
+(1,'Texto C respuesta para la pregunta nº 1',1,3),
+(2,'Texto A respuesta para la pregunta nº 2',0,1),
+(2,'Texto B respuesta para la pregunta nº 2',0,2),
+(2,'Texto C respuesta para la pregunta nº 2',1,3),
+(3,'Texto A respuesta para la pregunta nº 3',0,1),
+(3,'Texto B respuesta para la pregunta nº 3',0,2),
+(3,'Texto C respuesta para la pregunta nº 3',1,3),
+(4,'Texto A respuesta para la pregunta nº 4',0,1),
+(4,'Texto B respuesta para la pregunta nº 4',0,2),
+(4,'Texto C respuesta para la pregunta nº 4',1,3),
+(5,'Texto A respuesta para la pregunta nº 5',0,1),
+(5,'Texto B respuesta para la pregunta nº 5',0,2),
+(5,'Texto C respuesta para la pregunta nº 5',1,3),
+(6,'Texto A respuesta para la pregunta nº 6',0,1),
+(6,'Texto B respuesta para la pregunta nº 6',0,2),
+(6,'Texto C respuesta para la pregunta nº 6',1,3),
+(7,'Texto A respuesta para la pregunta nº 7',0,1),
+(7,'Texto B respuesta para la pregunta nº 7',0,2),
+(7,'Texto C respuesta para la pregunta nº 7',1,3),
+(8,'Texto A respuesta para la pregunta nº 8',0,1),
+(8,'Texto B respuesta para la pregunta nº 8',0,2),
+(8,'Texto C respuesta para la pregunta nº 8',1,3),
+(9,'Texto A respuesta para la pregunta nº 9',0,1),
+(9,'Texto B respuesta para la pregunta nº 9',0,2),
+(9,'Texto C respuesta para la pregunta nº 9',1,3),
+(10,'Texto A respuesta para la pregunta nº 10',0,1),
+(10,'Texto B respuesta para la pregunta nº 10',0,2),
+(10,'Texto C respuesta para la pregunta nº 10',1,3);
