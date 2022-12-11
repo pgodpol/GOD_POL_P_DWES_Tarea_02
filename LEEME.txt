@@ -1,4 +1,8 @@
-NOTA SOBRE LOS ARCHIVOS DE ESTE DIRECTORIO
+NOTA PARA EL PROFESOR
+
+El ejercicio lo he subido a ALWAYSDATA.NET y es accesible desde la dirección: http://pgodpol.alwaysdata.net/index.php
+
+También he subido el ejercicio a GITHUB accesible desde la dirección: https://github.com/pgodpol/GOD_POL_P_DWES_Tarea_02
 
 Dejo dentro del directorio bd_txt dos bases de datos en archivo txt:
 
