@@ -12,8 +12,6 @@ include_once('head.php');
   include_once('comprobar_sesion.php');
   ?>
 
-
-
   <?php
 
   if (comprobar_rol() !== "profesor") {
